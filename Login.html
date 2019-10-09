@@ -27,14 +27,10 @@
     </style>
 </head>
 <body>
-<div class="web"  v-cloak>
+<div class="web">
     <p class="title">掌讯科技 | 让你的工作更轻松</p>
-    <!--<p class="img"><img src="static/img/logo.png"></p>-->
     <div class="card">
         <i class="iconfont icon-bianhao"></i>
-        <!--<select name=""  id="md" >-->
-             <!---->
-        <!--</select>-->
         <select name="" id="md" v-model="Params.COMNo">
             <option class="companies" v-for="(item,index) in Companies" :key="index" :value="item.COMNo">{{item.COMNo}}</option>
         </select>
@@ -52,9 +48,9 @@
         <span><input type="checkbox" checked class="input_check" id="check3"><label for="check3"></label></span>
         <font>记住密码</font>
     </div>
-    <div class="btn">
-        <a href="#" v-on:click="Login" class="my-a btn" >登陆</a>
-    </div>
+    <!--<div class="btn">-->
+        <!--<a href="#" v-on:click="Login" class="my-a btn" >登陆</a>-->
+    <!--</div>-->
     <div class="footer">
         <span><a href="Config.html">系统配置</a></span>
         <span>技术支持：400-998-5802</span>
@@ -82,7 +78,7 @@
         methods:{
             companyInit:function(){
                 var _this=this;
-                axios.post('https://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
+                axios.post('http://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
                         'Content-Type':'application/x-www-form-urlencoded'
                     }})
                     .then(function (response) {
