@@ -78,7 +78,7 @@
         methods:{
             companyInit:function(){
                 var _this=this;
-                axios.post('http://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
+                axios.post('https://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
                         'Content-Type':'application/x-www-form-urlencoded'
                     }})
                     .then(function (response) {
