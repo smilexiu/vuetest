@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>登陆</title>
+    
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/iconfont.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/login.css">
+
+
+    <script src="static/js/vue.min.js"></script>
+    <script src="static/js/axios.min.js"></script>
+    <script src="static/js/qs.min.js"></script>
+    <script src="static/js/rem_common.js"></script>
+
+    <style>
+        select{
+            padding-top:0;
+            padding-bottom: 0;
+        }
+        #md{
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="web"  v-cloak>
+    <p class="title">掌讯科技 | 让你的工作更轻松</p>
+    <p class="img"><img src="static/img/logo.png"></p>
+    <div class="card">
+        <i class="iconfont icon-bianhao"></i>
+        <!--<select name=""  id="md" >-->
+             <!---->
+        <!--</select>-->
+        <select name="" id="md" v-model="Params.COMNo">
+            <option class="companies" v-for="(item,index) in Companies" :key="index" :value="item.COMNo">{{item.COMNo}}</option>
+        </select>
+    </div>
+    <div class="user_name">
+        <i class="iconfont icon-icon"></i>
+        <input type="text" v-model="Params.UserCode" placeholder="用户名"/>
+    </div>
+    <div class="pwd">
+        <i class="iconfont icon-ziyuan"></i>
+        <input type="password" v-model="Params.PWD" placeholder="密码" id="input_visible"/>
+        <i class="iconfont icon-yanjing icon-yan" id="visibles hideshow"></i>
+    </div>
+    <div class="nav_con">
+        <span><input type="checkbox" checked class="input_check" id="check3"><label for="check3"></label></span>
+        <font>记住密码</font>
+    </div>
+    <div class="btn">
+        <a href="#" v-on:click="Login" class="my-a btn" >登陆</a>
+    </div>
+    <div class="footer">
+        <span><a href="Config.html">系统配置</a></span>
+        <span>技术支持：400-998-5802</span>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:'.web',
+        data:{
+            Companies: [],
+            Params:{
+                COMNo:'',
+                UserCode:'',
+                PWD:'',
+                UUID:'aa',
+                JPushRegID:'bb',
+                DeviceType:'aPhone'
+            }
+        },
+        created: function () {
+            this.companyInit();
+        },
+        methods:{
+            companyInit:function(){
+                var _this=this;
+                axios.post('http://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
+                        'Content-Type':'application/x-www-form-urlencoded'
+                    }})
+                    .then(function (response) {
+                        _this.Companies=response.data.Companies;
+                        _this.Params.COMNo=response.data.Companies[0].COMNo;
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            Login:function () {
+                var _this=this;
+                axios.post(getIp()+'/AppSvc/Login.aspx?action=login&COMNo='+$('#md').val(),Qs.stringify(_this.Params),{headers:{
+                        'Content-Type':'application/x-www-form-urlencoded'
+                    }})
+                    .then(function (response) {
+                        console.log(response.data);
+                        // var userToken=localStorage.setItem("UserToken",response.data.UserToken);
+                        localStorage.setItem("UserToken",response.data.UserToken);
+                        localStorage.setItem("UserInfo",response.data);
+                        
+                        if(response.data.ErrCode==0){
+                            window.location.href='index.html';
+                        }
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        }
+    })
+
+    // $.post(getIp()+'/AppSvc/BaseConfig.aspx?action=getshops','',function(res){
+    //     console.log(res);
+    //     var op = '';
+    //
+    //     res.Companies.forEach((item,index,array)=>{
+    //             //执行代码
+    //             op += `<option value="`+item.COMNo+`">`+item.COMNo+`</option>`;
+    //         })
+    //         $('#md').html(op);
+    //
+    // },'json')
+   
+   
+</script>

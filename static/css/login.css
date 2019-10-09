@@ -1,0 +1,231 @@
+.web{
+    background: #f5f5f5;
+}
+.web>.title{
+    position: absolute;
+    left: 65px;
+    top: 80px;
+    /*width: 231px;*/
+    height: 20px;
+    color: rgba(130, 130, 130, 1);
+    font-size: 18px;
+    text-align: left;
+    font-family: 方正综艺体-标准;
+}
+.img{
+    position: absolute;
+    left: 143px;
+    top: 120px;
+    width: 75px;
+    height: 66px;
+}
+.card{
+    position: relative;
+    left: 0px;
+    top: 230px;
+    width: 375px;
+    height: 45px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    background: #ffffff;
+ 
+}
+#md{
+    position: absolute;
+    display: inline-block;
+    left: 50px;
+    top: 5px;
+    width: 306px;
+    height: 30px;
+    line-height: 17px;
+    color: rgba(130, 130, 130, 1);
+    font-size: 12px;
+    font-family: Arial;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    padding-left: 15px;
+    text-align: left;
+}
+.card>i{
+    position: absolute;
+    display: inline-block;
+    left: 15px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    /*background-color: rgba(130, 130, 130, 1);*/
+}
+.user_name{
+    position: relative;
+    left: 0px;
+    top: 230px;
+    width: 375px;
+    height: 45px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    background: #ffffff;
+}
+.user_name>input{
+    position: absolute;
+    display: inline-block;
+    left: 50px;
+    top: 5px;
+    width: 250px;
+    height: 30px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 12px;
+    text-align: left;
+    font-family: Microsoft Yahei;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+}
+.user_name>i{
+    position: absolute;
+    display: inline-block;
+    left: 15px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    /*background-color: rgba(130, 130, 130, 1);*/
+}
+.pwd{
+    position: relative;
+    left: 0px;
+    top: 230px;
+    width: 375px;
+    height: 45px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background: #ffffff;
+    box-sizing: border-box;
+}
+.pwd>i:first-child{
+    position: absolute;
+    display: inline-block;
+    left: 15px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    /*background-color: rgba(130, 130, 130, 1);*/
+}
+.pwd>input{
+    position: absolute;
+    display: inline-block;
+    left: 50px;
+    top: 5px;
+    width: 280px;
+    height: 30px;
+    color: rgba(130, 130, 130, 1);
+    font-size: 12px;
+    text-align: left;
+    font-family: Microsoft Yahei;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+}
+.pwd>i:last-child{
+    position: absolute;
+    display: inline-block;
+    left: 335px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    /*background-color: rgba(130, 130, 130, 1);*/
+}
+.nav_con>span{
+    position: absolute;
+    left: 260px;
+    top: 374px;
+    width: 16px;
+    height: 16px;
+}
+.nav_con>font{
+    position: absolute;
+    left: 282px;
+    top: 377px;
+    width: 48px;
+    height: 18px;
+    color: rgba(130, 130, 130, 1);
+    font-size: 12px;
+    text-align: left;
+    font-family: SourceHanSansSC-regular;
+}
+.btn>input,.btn>a{
+    position: absolute;
+    display: inline-block;
+    left: 47px;
+    top: 412px;
+    width: 280px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: rgba(255, 58, 50, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Microsoft Yahei;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+}
+.footer>span:first-child{
+    display: inline-block;
+    position: absolute;
+    left: 11px;
+    bottom: 8px;
+    /* top: 644px; */
+    width: 48px;
+    height: 18px;
+    color: rgba(130, 130, 130, 1);
+    font-size: 12px;
+    text-align: left;
+    font-family: SourceHanSansSC-regular;
+}
+.footer>span:last-child{
+    display: inline-block;
+    position: absolute;
+    left: 221px;
+    bottom: 8px;
+    /* top: 641px; */
+    width: 143px;
+    height: 18px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 12px;
+    text-align: left;
+    font-family: SourceHanSansSC-regular;
+}
+
+a{
+    text-decoration: none;
+}
+a.my-a{
+    line-height: 34px;
+}
+@media only screen and (height: 500px){
+    .web>.title{
+        top: 24px;
+    }
+    .img{
+        top:74px;
+    }
+    .card{
+        top:169px;
+    }
+    .pwd{
+        top:169px;
+    }
+    .user_name{
+        top:169px;
+    }
+    .nav_con>span{
+        top:315px
+    }
+    .nav_con>font{
+        top:315px
+    }
+    .btn>input, .btn>a{
+        top: 342px;
+    }
+}
