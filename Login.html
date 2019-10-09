@@ -28,32 +28,11 @@
 </head>
 <body>
 <div class="web">
-    <p class="title">掌讯科技 | 让你的工作更轻松</p>
     <div class="card">
         <i class="iconfont icon-bianhao"></i>
         <select name="" id="md" v-model="Params.COMNo">
             <option class="companies" v-for="(item,index) in Companies" :key="index" :value="item.COMNo">{{item.COMNo}}</option>
         </select>
-    </div>
-    <div class="user_name">
-        <i class="iconfont icon-icon"></i>
-        <input type="text" v-model="Params.UserCode" placeholder="用户名"/>
-    </div>
-    <div class="pwd">
-        <i class="iconfont icon-ziyuan"></i>
-        <input type="password" v-model="Params.PWD" placeholder="密码" id="input_visible"/>
-        <i class="iconfont icon-yanjing icon-yan" id="visibles hideshow"></i>
-    </div>
-    <div class="nav_con">
-        <span><input type="checkbox" checked class="input_check" id="check3"><label for="check3"></label></span>
-        <font>记住密码</font>
-    </div>
-    <!--<div class="btn">-->
-        <!--<a href="#" v-on:click="Login" class="my-a btn" >登陆</a>-->
-    <!--</div>-->
-    <div class="footer">
-        <span><a href="Config.html">系统配置</a></span>
-        <span>技术支持：400-998-5802</span>
     </div>
 </div>
 </body>
@@ -77,17 +56,23 @@
         },
         methods:{
             companyInit:function(){
-                var _this=this;
-                axios.post('https://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
-                        'Content-Type':'application/x-www-form-urlencoded'
-                    }})
-                    .then(function (response) {
-                        _this.Companies=response.data.Companies;
-                        _this.Params.COMNo=response.data.Companies[0].COMNo;
-                    })
-                    .catch(function (error) { // 请求失败处理
-                        console.log(error);
-                    });
+                this.Params.COMNo='A01';
+                this.Companies=[
+                    {COMNo:'A01'},
+                    {COMNo:'A02'},
+                    {COMNo:'A03'}
+                ];
+                // var _this=this;
+                // axios.post('http://39.108.15.203:8000/AppSvc/BaseConfig.aspx?action=getshops',{headers:{
+                //         'Content-Type':'application/x-www-form-urlencoded'
+                //     }})
+                //     .then(function (response) {
+                //         _this.Companies=response.data.Companies;
+                //         _this.Params.COMNo=response.data.Companies[0].COMNo;
+                //     })
+                //     .catch(function (error) { // 请求失败处理
+                //         console.log(error);
+                //     });
             }
         }
     })
